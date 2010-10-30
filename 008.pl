@@ -4,13 +4,13 @@ use warnings;
 use 5.010;
 use List::Util qw(reduce max);
 
-my $n = join('', map { my $x = $_; chomp $x; $x } <DATA>);
+my $n = join( '', map { my $x = $_; chomp $x; $x } <DATA> );
 
 my $max = 0;
-for my $x (0 .. length($n) - 5) {
-    my @digits = split(//, substr($n, $x, 5));
+for my $x ( 0 .. length($n) - 5 ) {
+    my @digits = split( //, substr( $n, $x, 5 ) );
     my $product = reduce { $a * $b } @digits;
-    $max = max ($max, $product);
+    $max = max( $max, $product );
 }
 say $max;
 

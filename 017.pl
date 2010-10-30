@@ -6,9 +6,9 @@ use Lingua::EN::Numbers qw(num2en);
 
 my $letters;
 
-foreach my $n (1 .. 1000) {
+foreach my $n ( 1 .. 1000 ) {
     my $number = num2en($n);
-    my @matches = ($number =~ /[a-z]/g);
+    my @matches = ( $number =~ /[a-z]/g );
     $letters += @matches;
 }
 

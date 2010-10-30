@@ -9,8 +9,8 @@ my $n = 600851475143;
 my @f;
 
 my $f = 2;
-while ($f < sqrt($n)) {
-    while ($n % $f == 0) {
+while ( $f < sqrt($n) ) {
+    while ( $n % $f == 0 ) {
         push @f, $f;
         $n /= $f;
     }

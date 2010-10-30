@@ -8,9 +8,10 @@ memoize('seq_length');
 
 sub collatz {
     my ($n) = @_;
-    if ($n % 2 == 0) {
+    if ( $n % 2 == 0 ) {
         return $n / 2;
-    } else {
+    }
+    else {
         return 3 * $n + 1;
     }
 }
@@ -18,16 +19,16 @@ sub collatz {
 sub seq_length {
     my ($n) = @_;
     return 1 if $n == 1;
-    return 1 + seq_length(collatz($n));
+    return 1 + seq_length( collatz($n) );
 }
 
 my $max = 0;
 my $n;
-foreach my $x (1 .. 999_999) {
+foreach my $x ( 1 .. 999_999 ) {
     my $length = seq_length($x);
-    if ($length > $max) {
+    if ( $length > $max ) {
         $max = $length;
-        $n = $x;
+        $n   = $x;
     }
 }
 say $n;

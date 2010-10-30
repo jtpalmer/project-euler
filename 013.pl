@@ -6,7 +6,7 @@ use Math::BigInt;
 use List::Util qw(sum);
 
 my $sum = sum map { Math::BigInt->new($_) } <DATA>;
-say substr($sum, 0, 10);
+say substr( $sum, 0, 10 );
 
 __DATA__
 37107287533902102798797998220837590246510135740250

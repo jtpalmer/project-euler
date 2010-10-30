@@ -5,7 +5,7 @@ use 5.010;
 
 my $sum;
 
-foreach (1 .. 999) {
+foreach ( 1 .. 999 ) {
     next unless $_ % 3 == 0 || $_ % 5 == 0;
     $sum += $_;
 }
