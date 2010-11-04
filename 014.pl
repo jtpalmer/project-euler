@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+no warnings 'recursion';
 use 5.010;
 use Memoize;
 
