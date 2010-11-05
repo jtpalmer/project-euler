@@ -7,14 +7,14 @@ use Algorithm::Permute;
 
 my %products;
 
-my $p = Algorithm::Permute->new([1 .. 9]);
+my $p = Algorithm::Permute->new( [ 1 .. 9 ] );
 
-while (my @r = $p->next()) {
+while ( my @r = $p->next() ) {
     foreach my $a ( 0 .. 6 ) {
-        my $x = join('', @r[0 .. $a]);
+        my $x = join( '', @r[ 0 .. $a ] );
         foreach my $b ( $a + 1 .. 7 ) {
-            my $y = join('', @r[$a + 1 .. $b]);
-            my $z = join('', @r[$b + 1 .. 8]);
+            my $y = join( '', @r[ $a + 1 .. $b ] );
+            my $z = join( '', @r[ $b + 1 .. 8 ] );
             $products{$z} = 1 if $z == $x * $y;
         }
     }
