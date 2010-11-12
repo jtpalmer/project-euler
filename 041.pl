@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use 5.010;
-use Math::Prime::XS qw(sieve_primes);
+use Math::Prime::XS qw(primes);
 use List::Util qw(first);
 
 sub is_pandigital {
@@ -15,4 +15,4 @@ sub is_pandigital {
     return 1;
 }
 
-say first { is_pandigital($_) } reverse sieve_primes(9_999_999);
+say first { is_pandigital($_) } reverse primes(9_999_999);

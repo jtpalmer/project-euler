@@ -2,10 +2,10 @@
 use strict;
 use warnings;
 use 5.010;
-use Math::Prime::XS qw(sieve_primes);
+use Math::Prime::XS qw(primes);
 
 my @dsquares = map { 2 * $_ * $_ } 1 .. 100_000;
-my %primes = map { $_ => 1 } sieve_primes(100_000);
+my %primes = map { $_ => 1 } primes(100_000);
 
 my $n = 1;
 while (1) {

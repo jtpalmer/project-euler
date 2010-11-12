@@ -2,9 +2,9 @@
 use strict;
 use warnings;
 use 5.010;
-use Math::Prime::XS 'sieve_primes';
+use Math::Prime::XS qw(primes);
 
-my %primes = map { $_ => 1 } sieve_primes(999_999);
+my %primes = map { $_ => 1 } primes(999_999);
 
 my @circular;
 

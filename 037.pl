@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use 5.010;
 use List::Util qw(sum);
-use Math::Prime::XS qw(is_prime sieve_primes);
+use Math::Prime::XS qw(is_prime primes);
 
-my %prime     = map { $_ => 1 } sieve_primes(999_999);
+my %prime     = map { $_ => 1 } primes(999_999);
 my %not_prime = map { $_ => 1 } 0 .. 999_999;
 delete $not_prime{$_} foreach keys %prime;
 
@@ -45,7 +45,7 @@ sub right_truncatable {
     return 1;
 }
 
-my @digits = sieve_primes(9);
+my @digits = primes(9);
 
 my @truncatable;
 my $middle_size = 0;
