@@ -21,4 +21,4 @@ my @names = @{ $csv->getline($fh) };
 
 @names = sort @names;
 
-say sum map { score( $_ + 1, $names[$_]) } 0 .. $#names;
+say sum map { score( $_ + 1, $names[$_] ) } 0 .. $#names;

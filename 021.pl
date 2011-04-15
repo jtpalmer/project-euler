@@ -15,4 +15,4 @@ sub d {
     return sum @factors;
 }
 
-say sum grep { $_ != d($_) && $_ == d(d($_)) } 2 .. 9_999;
+say sum grep { $_ != d($_) && $_ == d( d($_) ) } 2 .. 9_999;
