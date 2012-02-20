@@ -3,31 +3,39 @@ use 5.010;
 use strict;
 use warnings;
 use Math::Bigint;
+use Memoize;
+
+memoize('is_palindrome');
 
 sub is_palindrome {
-    return "$_[0]" eq reverse "$_[0]";
+    return $_[0] eq reverse $_[0];
 }
 
 sub is_lychrel {
-    my ($n) = @_;
-
-    my $max = 50;
+    my $n = shift;
 
     for ( 1 .. 50 ) {
-        return 0 if $n < 10;
+        $n = $n + Math::BigInt->new( scalar reverse "$n" );
 
-        $n = $n + Math::BigInt->new( reverse "$n" );
-
-        return 1 if is_palindrome($n);
+        say $n;
+        return 0 if is_palindrome("$n");
     }
 
-    return 0;
+    return 1;
 }
 
 my $count = 0;
 
 for my $n ( 0 .. 9_999 ) {
-    $count++ if is_lychrel( Math::BigInt->new($n) );
+    say "$n:";
+    #$count++ if is_lychrel( Math::BigInt->new($n) );
+    if ( is_lychrel( Math::BigInt->new($n) ) ) {
+        $count++;
+        say 'YES';
+    } else {
+        say 'NO';
+    }
+    say '';
 }
 
 say $count;
