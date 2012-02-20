@@ -2,19 +2,18 @@
 use 5.010;
 use strict;
 use warnings;
-use Math::BigRat;
+use Math::BigInt;
 
 my $count = 0;
 
-my $x = Math::BigRat->new('1/2');
+my ($nx, $dx) = map { Math::BigInt->new($_) } (1, 2);
 
 for ( 1 .. 1000 ) {
-    my $sum = 1 + $x;
+    my ($n, $d) = ( $nx + $dx, $dx );
 
-    my ( $n, $d ) = $sum->parts();
     $count++ if length "$n" > length "$d";
 
-    $x = 1 / ( 2 + $x );
+    ($nx, $dx) = ( $dx, 2 * $dx + $nx );
 }
 
 say $count;
