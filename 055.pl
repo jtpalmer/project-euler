@@ -17,7 +17,6 @@ sub is_lychrel {
     for ( 1 .. 50 ) {
         $n = $n + Math::BigInt->new( scalar reverse "$n" );
 
-        say $n;
         return 0 if is_palindrome("$n");
     }
 
@@ -27,15 +26,7 @@ sub is_lychrel {
 my $count = 0;
 
 for my $n ( 0 .. 9_999 ) {
-    say "$n:";
-    #$count++ if is_lychrel( Math::BigInt->new($n) );
-    if ( is_lychrel( Math::BigInt->new($n) ) ) {
-        $count++;
-        say 'YES';
-    } else {
-        say 'NO';
-    }
-    say '';
+    $count++ if is_lychrel( Math::BigInt->new($n) );
 }
 
 say $count;
